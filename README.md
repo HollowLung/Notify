@@ -52,26 +52,7 @@ need Rust, Node.js, Visual Studio, or any of the tools you installed. Those
 were only needed to *build* the app; running it is just like any other
 Windows program.
 
-**Give them these instructions:**
 
-1. Save the `notify_0.1.0_x64-setup.exe` file anywhere (e.g. Downloads).
-2. Double-click it.
-3. Windows will very likely show a blue **"Windows protected your PC"**
-   SmartScreen warning. This happens to any small/independent app that isn't
-   digitally signed with a paid certificate — it does **not** mean anything
-   is wrong with the app. Click **"More info"**, then click **"Run anyway"**.
-4. Follow the install prompts (Next → Next → Install). It installs like any
-   normal app and adds a Start Menu shortcut named **notify**.
-5. Open it from the Start Menu. No extra setup, accounts, or internet
-   connection needed — it's fully offline.
-
-If Windows Defender / their antivirus flags it (also common for unsigned
-apps from small developers), they can click "Allow" / "More info → Run
-anyway" the same way. If you want to avoid this warning entirely in the
-future, it requires purchasing a code-signing certificate (roughly
-$100–400/year) and signing the build — not necessary for personal use or
-sharing with friends, but worth knowing if you ever plan to distribute this
-more widely.
 
 ## How it's put together
 
