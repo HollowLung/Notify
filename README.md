@@ -21,10 +21,9 @@ and plays them locally.
 - 3 starter theme templates (Violet Night, Sunset Ember, Mono Frost)
 - Theme export/import as portable `.json` files
 
-## Building it yourself (what you already have working)
+## Building it yourself
 
-You need Rust, Node.js, and the MSVC Build Tools installed once — if
-`npm run dev` has worked for you before, you already have all of this.
+You need Rust, Node.js, and the MSVC Build Tools installed once
 
 In the project folder:
 
