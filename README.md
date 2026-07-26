@@ -42,6 +42,3 @@ npm run build       # to produce the real installer
 src-tauri\target\release\bundle\msi\notify_0.1.0_x64_en-US.msi
 src-tauri\target\release\bundle\nsis\notify_0.1.0_x64-setup.exe
 ```
-
-Either one is a complete, standalone Windows installer for `notify`. This is
-the file you actually release/share — not the whole project folder.
