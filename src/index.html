@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>notify</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <div class="brand">
+      <span class="brand-mark">n.</span>
+      <span class="brand-name">notify</span>
+    </div>
+
+    <button class="nav-item active" data-view="library">Your Library</button>
+    <button class="nav-item" data-view="liked">Liked Songs</button>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- Replaced entirely by theme controls while in theme mode -->
+    <div id="sidebar-playlists-block">
+      <div class="sidebar-header">
+        <span>Playlists</span>
+        <button id="new-playlist-btn" title="New playlist">+</button>
+      </div>
+      <div id="playlist-list"></div>
+    </div>
+
+    <div id="sidebar-theme-block" hidden></div>
+
+    <div class="sidebar-divider"></div>
+
+    <button id="import-btn" class="nav-item outline">Import Music</button>
+    <button id="theme-btn" class="nav-item outline" data-view="theme">Customize Theme</button>
+  </nav>
+
+  <!-- Main content -->
+  <main id="main">
+    <header id="main-header">
+      <div>
+        <h1 id="view-title">Your Library</h1>
+        <p id="view-subtitle" hidden></p>
+      </div>
+      <input id="search-box" type="search" placeholder="Search tracks, artists, albums..." />
+    </header>
+
+    <div id="track-list-header" class="track-row track-row--header">
+      <span class="col-index">#</span>
+      <span class="col-play"></span>
+      <span class="col-title">Title</span>
+      <span class="col-album">Album</span>
+      <span class="col-duration">Duration</span>
+      <span class="col-like"></span>
+      <span class="col-addlist"></span>
+    </div>
+
+    <div id="track-list"></div>
+
+    <div id="empty-state" class="empty-state" hidden>
+      <p>No tracks here yet.</p>
+      <button id="empty-import-btn">Import Music</button>
+    </div>
+  </main>
+
+  <!-- Player bar -->
+  <footer id="player-bar">
+    <div class="now-playing">
+      <img id="np-cover" src="" alt="" hidden />
+      <div class="np-cover-placeholder" id="np-cover-placeholder"></div>
+      <div class="np-text">
+        <div id="np-title">Nothing playing</div>
+        <div id="np-artist">&nbsp;</div>
+      </div>
+      <button id="np-like" class="like-btn" title="Like">&#9825;</button>
+    </div>
+
+    <div class="player-controls">
+      <div class="transport">
+        <button id="prev-btn" title="Previous">&#9198;</button>
+        <button id="play-btn" title="Play/Pause">&#9654;</button>
+        <button id="next-btn" title="Next">&#9197;</button>
+        <button id="shuffle-btn" title="Shuffle">
+          <svg viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 5h3.2c1 0 1.8.5 2.3 1.3L12 13.5c.5.8 1.3 1.3 2.3 1.3H16"/>
+            <path d="M2 13h3.2c1 0 1.8-.5 2.3-1.3l.8-1.3"/>
+            <path d="M13.2 3.6 16 5l-2.8 1.4"/>
+            <path d="M13.2 14.4 16 13l-2.8-1.4"/>
+          </svg>
+        </button>
+        <button id="repeat-btn" title="Repeat">
+          <svg viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7V6a3 3 0 0 1 3-3h7"/>
+            <path d="M11.5 1 13.5 3l-2 2"/>
+            <path d="M15 11v1a3 3 0 0 1-3 3H5"/>
+            <path d="M6.5 17 4.5 15l2-2"/>
+          </svg>
+        </button>
+        <button id="eq-btn" title="Equalizer">
+          <svg viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 17V9"/><circle cx="4" cy="6.5" r="1.6" fill="currentColor" stroke="none"/>
+            <path d="M9 17v-4"/><circle cx="9" cy="10.5" r="1.6" fill="currentColor" stroke="none"/>
+            <path d="M14 17V6"/><circle cx="14" cy="3.5" r="1.6" fill="currentColor" stroke="none"/>
+          </svg>
+        </button>
+      </div>
+      <div class="seek-row">
+        <span id="time-current">0:00</span>
+        <input id="seek-bar" type="range" min="0" max="100" value="0" />
+        <span id="time-total">0:00</span>
+      </div>
+    </div>
+
+    <div class="volume-row">
+      <button id="volume-icon-btn" class="volume-icon-btn" title="Mute/Unmute">
+        <svg viewBox="0 0 18 18" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 7h2.5L8 4v10L4.5 11H2z" fill="currentColor" stroke="none"/>
+          <path d="M11 6.5a3 3 0 0 1 0 5"/>
+          <path d="M13 4.5a6 6 0 0 1 0 9"/>
+        </svg>
+      </button>
+      <input id="volume-bar" type="range" min="0" max="100" value="80" />
+    </div>
+  </footer>
+
+  <audio id="audio-el"></audio>
+
+  <!-- New playlist modal -->
+  <div id="modal-backdrop" class="modal-backdrop" hidden>
+    <div class="modal">
+      <h2 id="modal-title">New Playlist</h2>
+      <input id="modal-input" type="text" placeholder="Playlist name" />
+      <div class="modal-actions">
+        <button id="modal-cancel" class="outline">Cancel</button>
+        <button id="modal-confirm">Create</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

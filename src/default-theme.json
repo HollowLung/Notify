@@ -1,0 +1,23 @@
+{
+  "themeName": "Default Dark",
+  "--bg-primary": "#121218",
+  "--bg-secondary": "#191a21",
+  "--bg-elevated": "#22232c",
+  "--bg-hover": "#2b2c37",
+  "--text-primary": "#f2f1ee",
+  "--text-secondary": "#9a98a8",
+  "--accent": "#7c5cff",
+  "--accent-solid": "#7c5cff",
+  "--accent-text": "#ffffff",
+  "--border": "#2c2d38",
+  "--radius-sm": "6px",
+  "--radius-md": "10px",
+  "--radius-lg": "16px",
+  "--sidebar-width": "240px",
+  "--player-height": "88px",
+  "--font-display": "'Space Grotesk', sans-serif",
+  "--font-body": "'Inter', sans-serif",
+  "--font-mono": "'JetBrains Mono', monospace",
+  "--album-art-radius": "8px",
+  "--density": "1"
+}
