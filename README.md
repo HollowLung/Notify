@@ -1,4 +1,4 @@
-# Hey dont forgot to join the discord to get update!
+# Hey dont forgot to join the discord to get updates!
 You will also get to see futer updates and share or download .jason themes.
 https://discord.gg/WUEfEpCpPq
 
