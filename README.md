@@ -1,3 +1,8 @@
+# Hey dont forgot to join the discord to get update!
+You will also get to see futer updates and share or download .jason themes.
+https://discord.gg/WUEfEpCpPq
+
+
 # notify
 
 A local-library music player for Windows. Import your own MP3/FLAC/WAV/OGG/M4A
